@@ -12,6 +12,7 @@ Morg NPC has been made with the help of WeiDU. Unzip the folder to your Baldur's
 > SPOILERS BELOW! Do not read if you want to feel the sense of discovery. The mod contents are explicitly listed here.
 
 ## Who is Morg?
+![Portrait of Morg](morg_face.png?raw=true)
 
 Morg is a Dwarven (Duergar) **Fighter/Necromancer**. Because of his Duergar race, he can cast invisibility as an innate ability. He does not have any banters yet, as I'm not sure how to do quality ones with the BioWare NPC's as it's impossible to do new voicelines for them.
 
@@ -37,16 +38,20 @@ Crossbows           +
 
 The mod includes a small playable dungeon (Made from scratch with Blender) with some interesting enemies and loot.
 
+![Zoomed out image of the area, most of it is pixelated](area_spoiler.png?raw=true)
+
 ### Enemies in the dungeon
 
 The dungeon contains three groups of enemies. Enemy spell order and usage might throw you off if you are used to vanilla spellcasters.
+
+![A duergar in platemail and a drow with chainmail stand next to a campfire](enemies.png?raw=true)
 
 + Faere Tor'Sszafin, a drow priestess with a bunch of spiders. If you can't get past her, come back later.
 + Xathan Tor'Sszafin, a drow fighter/mage, along with the Duergar captain Ilpo, they have a lot of other Duergars helping them. This fight might give you trouble as Xathan is pretty careless with fireballs.
 + A duergar search party led by Lokir.
 
 ### List of new magical equipment
-
+![In-game icons of the items listed below](all_items.png?raw=true)
 + Stinky's Skull +1, a magical flail that stinks.
 + Kromus's Chaos +1, a magical mace.
 + Runechain +1, a magical chainmail that allows casting while it's equipped.
