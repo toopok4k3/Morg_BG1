@@ -1,0 +1,20 @@
+IF
+	See(NearestEnemyOf(Myself))
+	HPPercentLT(Myself, 100)
+	HaveSpellRES("SPIN118")
+	Global("k4invuse", "LOCALS", 0)
+THEN
+	RESPONSE #100
+		SetGlobal("k4invuse", "LOCALS", 1)
+		SpellRES("SPIN118",Myself)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_INVISIBLE)
+	Global("k4invuse", "LOCALS", 1)
+THEN
+	RESPONSE #100
+		SetGlobal("k4invuse", "LOCALS", 2)
+        RunAwayFrom(NearestEnemyOf(Myself),150)
+END

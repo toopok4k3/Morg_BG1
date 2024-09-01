@@ -1,0 +1,203 @@
+// LVL1: Magic Missile
+// LVL2: Mirror Image, Vocalize, Web
+// LVL3: Haste, Fireball
+// LVL4: Stoneskin, Fireshield (Red)
+// LVL5: Shadow Door
+
+// Sequence
+// 0. Vocalize (If silenced)
+// 4. Shadow Door (If lost HP)
+// 5. Stoneskin (If lost HP)
+// 6. Mirror Image (If lost HP, If stoneskin spell state not on)
+// 7. Fireshield (Red) (If lost HP, If enemy in melee)
+// 1. Web
+// 2. Fireball
+// 3. Haste
+// 8. Magic Missile (25% of time)
+
+IF
+	StateCheck(Myself,STATE_PANIC)
+THEN
+	RESPONSE #100
+		RandomWalkContinuous()
+END
+
+IF
+	//See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_SILENCED)
+	HaveSpell(WIZARD_VOCALIZE)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_VOCALIZE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HPPercentLT(Myself, 100)
+	HaveSpell(WIZARD_SHADOW_DOOR)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_SHADOW_DOOR)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HPPercentLT(Myself, 100)
+	HaveSpell(WIZARD_STONE_SKIN)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_STONE_SKIN)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HPPercentLT(Myself, 100)
+	!CheckSpellState(Myself,STONESKIN)
+	!StateCheck(Myself,STATE_MIRRORIMAGE)
+	HaveSpell(WIZARD_MIRROR_IMAGE)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_MIRROR_IMAGE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HPPercentLT(Myself, 100)
+	HaveSpell(WIZARD_FIRE_SHIELD_RED)
+	Range(NearestEnemyOf(Myself),12)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_FIRE_SHIELD_RED)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_WEB)
+	!Range(NearestEnemyOf(Myself),12)
+	See([PC.0.0.CLERIC])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC],WIZARD_WEB)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_WEB)
+	!Range(NearestEnemyOf(Myself),12)
+	See([PC.0.0.MAGE])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.MAGE],WIZARD_WEB)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_WEB)
+	!Range(NearestEnemyOf(Myself),12)
+	See([PC.0.0.CLERIC_MAGE])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC_MAGE],WIZARD_WEB)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_WEB)
+	!Range(NearestEnemyOf(Myself),12)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_WEB)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+	Range(NearestEnemyOf(Myself),12)
+	!CheckSpellState(Myself,RED_FIRESHIELD)
+THEN
+	RESPONSE #100
+		RunAwayFrom(NearestEnemyOf(Myself),30)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+	OR(2)
+		CheckSpellState(Myself,RED_FIRESHIELD)
+		!Range(NearestEnemyOf(Myself),12)
+	See([PC.0.0.CLERIC])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC],WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+	OR(2)
+		CheckSpellState(Myself,RED_FIRESHIELD)
+		!Range(NearestEnemyOf(Myself),12)
+	See([PC.0.0.MAGE])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.MAGE],WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+	OR(2)
+		CheckSpellState(Myself,RED_FIRESHIELD)
+		!Range(NearestEnemyOf(Myself),12)
+	See([PC.0.0.CLERIC_MAGE])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC_MAGE],WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+	OR(2)
+		CheckSpellState(Myself,RED_FIRESHIELD)
+		!Range(NearestEnemyOf(Myself),12)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+	!Range(FarthestEnemyOf(Myself),12)
+THEN
+	RESPONSE #100
+		Spell(FarthestEnemyOf(Myself),WIZARD_FIREBALL)  // SPWI304.SPL (Fireball)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(Myself,STATE_HASTED)
+	HaveSpell(WIZARD_HASTE)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_HASTE)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+	RESPONSE #75
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

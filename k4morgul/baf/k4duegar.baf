@@ -1,0 +1,79 @@
+// Always invis if we are far away from enemy and can't equip ranged
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("SPIN118")
+	!CanEquipRanged(Myself)
+	!Range(NearestEnemyOf(Myself),5)
+THEN
+	RESPONSE #100
+		SpellRES("SPIN118",Myself)
+		StartTimer("k4inv",6)
+END
+
+// Always invis if we are too close to the enemy and can equip ranged
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("SPIN118")
+	CanEquipRanged(Myself)
+	Range(NearestEnemyOf(Myself),5)
+THEN
+	RESPONSE #100
+		SpellRES("SPIN118",Myself)
+		StartTimer("k4inv",6)
+END
+
+// Always invis if we have taken damage
+IF
+	See(NearestEnemyOf(Myself))
+	HPPercentLT(Myself, 100)
+	HaveSpellRES("SPIN118")
+THEN
+	RESPONSE #100
+		SpellRES("SPIN118",Myself)
+		StartTimer("k4inv",6)
+END
+
+// Equip ranged if we can when invisible
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_INVISIBLE)
+	CanEquipRanged(Myself)
+	!IsWeaponRanged(Myself)
+THEN
+	RESPONSE #100
+		EquipRanged()
+END
+
+// Run away if we got ranged equipped and are invisible as long as we are within 20 feet and inv timer has not expired
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_INVISIBLE)
+	CanEquipRanged(Myself)
+	Range(NearestEnemyOf(Myself),15)
+	!TimerExpired("k4inv")
+THEN
+	RESPONSE #100
+        RunAwayFrom(NearestEnemyOf(Myself),15)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_INVISIBLE)
+	!CanEquipRanged(Myself)
+	!TimerExpired("k4inv")
+	See([PC.0.0.MAGE])
+THEN
+	RESPONSE #100
+        AttackReevaluate([PC.0.0.MAGE],30)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_INVISIBLE)
+	!CanEquipRanged(Myself)
+	!TimerExpired("k4inv")
+	See([PC.0.0.CLERIC])
+THEN
+	RESPONSE #100
+        AttackReevaluate([PC.0.0.CLERIC],30)
+END

@@ -1,0 +1,131 @@
+IF
+	StateCheck(Myself,STATE_PANIC)
+THEN
+	RESPONSE #100
+		RandomWalkContinuous()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_GLYPH_OF_WARDING)
+	!Range(NearestEnemyOf(Myself),15)
+	See([PC.0.0.CLERIC])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC],CLERIC_GLYPH_OF_WARDING)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_GLYPH_OF_WARDING)
+	!Range(NearestEnemyOf(Myself),15)
+	See([PC.0.0.MAGE])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.MAGE],CLERIC_GLYPH_OF_WARDING)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_GLYPH_OF_WARDING)
+	!Range(NearestEnemyOf(Myself),15)
+	See([PC.0.0.CLERIC_MAGE])
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC_MAGE],CLERIC_GLYPH_OF_WARDING)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_GLYPH_OF_WARDING)
+	!Range(NearestEnemyOf(Myself),15)
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),CLERIC_GLYPH_OF_WARDING)
+END
+
+IF
+	HaveSpell(CLERIC_SILENCE_15_FOOT)
+	See(NearestEnemyOf(Myself))
+	See([PC.0.0.MAGE])
+	!Range(NearestEnemyOf(Myself),12)
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.MAGE],CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+	HaveSpell(CLERIC_SILENCE_15_FOOT)
+	See(NearestEnemyOf(Myself))
+	See([PC.0.0.CLERIC])
+	!Range(NearestEnemyOf(Myself),12)
+THEN
+	RESPONSE #100
+		Spell([PC.0.0.CLERIC],CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+	HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
+	See(LastSeenBy)
+	!Range(LastSeenBy,0)
+	!StateCheck(LastSeenBy,STATE_REALLY_DEAD)
+	!StateCheck(LastSeenBy,STATE_DISABLED)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy,CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
+	RESPONSE #50
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_ANIMATE_DEAD)  // SPPR301.SPL (Animate Dead)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_ANIMATE_DEAD)  // SPPR301.SPL (Animate Dead)
+	RESPONSE #50
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
+	See(LastSeenBy)
+	!Range(LastSeenBy,0)
+	!StateCheck(LastSeenBy,STATE_REALLY_DEAD)
+	!StateCheck(LastSeenBy,STATE_DISABLED)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy,CLERIC_COMMAND)  // SPPR102.SPL (Command)
+	RESPONSE #75
+		Continue()
+END
+
+IF
+	HaveSpell(CLERIC_DOOM)
+	See(LastSeenBy)
+	!Range(LastSeenBy,0)
+	!StateCheck(LastSeenBy,STATE_REALLY_DEAD)
+	!StateCheck(LastSeenBy,STATE_DISABLED)
+THEN
+	RESPONSE #100
+		Spell(LastSeenBy,CLERIC_DOOM)
+	RESPONSE #20
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
+THEN
+	RESPONSE #100
+		Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		EquipMostDamagingMelee()
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+

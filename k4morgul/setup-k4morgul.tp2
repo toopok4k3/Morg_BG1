@@ -1,0 +1,238 @@
+BACKUP ~k4morgul/Backup~
+AUTHOR ~toopok4k3~
+VERSION ~v1.0~
+
+LANGUAGE ~English~
+         ~English~
+         ~k4morgul/tra/english/k4morg.tra~
+
+BEGIN ~Morgul NPC~
+REQUIRE_PREDICATE GAME_IS ~bgee~ ~MorgulNPC Requires Baldur's Gate:Enhanced edition mainly due to the author being a newbie~
+
+LAF HANDLE_AUDIO END
+
+COPY ~k4morgul/bam~ ~override~
+
+COPY ~k4morgul/cre/k4duecap.CRE~ ~override/k4duecap.CRE~
+  SAY NAME1 ~Ilpo~
+  SAY NAME2 ~Ilpo~
+  WRITE_ASCII 0x258 ~k4duegar~ #8   // Race script
+//  WRITE_EVALUATED_ASCII 0x2cc ~k4xathan~ #8 // Dialogue
+
+COPY ~k4morgul/cre/k4duecle.CRE~ ~override/k4duecle.CRE~
+  SAY NAME1 ~Duergar Cleric~
+  SAY NAME2 ~Duergar Cleric~
+  WRITE_ASCII 0x250 ~k4priest~ #8   // Class script
+  WRITE_ASCII 0x258 ~k4duegar~ #8   // Race script
+
+COPY ~k4morgul/cre/k4duefig.CRE~ ~override/k4duefig.CRE~
+  SAY NAME1 ~Duergar Guard~
+  SAY NAME2 ~Duergar Guard~
+  WRITE_ASCII 0x258 ~k4duegar~ #8   // Race script
+
+COPY ~k4morgul/cre/k4duemrk.CRE~ ~override/k4duemrk.CRE~
+  SAY NAME1 ~Duergar Scout~
+  SAY NAME2 ~Duergar Scout~
+  WRITE_ASCII 0x258 ~k4duegar~ #8   // Race script
+
+COPY ~k4morgul/cre/k4duemk2.CRE~ ~override/k4duemk2.CRE~
+  SAY NAME1 ~Lokir~
+  SAY NAME2 ~Lokir~
+  WRITE_ASCII 0x2cc ~k4lokir~ #8 // Dialogue
+  WRITE_ASCII 0x248 ~k4lokir~ #8   // Override script
+  WRITE_ASCII 0x258 ~k4duegar~ #8   // Race script
+
+COPY ~k4morgul/cre/k4drowpr.CRE~ ~override/k4drowpr.CRE~
+  SAY NAME1 ~Faere Tor'Sszafin~
+  SAY NAME2 ~Faere Tor'Sszafin~
+  WRITE_ASCII 0x2cc ~k4faere~ #8 // Dialogue
+  WRITE_ASCII 0x248 ~k4faere~ #8   // Override script
+  WRITE_ASCII 0x250 ~k4priest~ #8   // Class script
+
+//  WRITE_ASCII 0x248 ~~ #8   // Override script
+//  WRITE_ASCII 0x250 ~~ #8   // Class script
+//  WRITE_ASCII 0x258 ~~ #8   // Race script
+//  WRITE_ASCII 0x260 ~~ #8   // General script
+//  WRITE_ASCII 0x268 ~WTASIGHT~ #8   // Default script
+
+COPY ~k4morgul/cre/k4drowfm.CRE~ ~override/k4drowfm.CRE~
+  SAY NAME1 ~Xathan Tor'Sszafin~
+  SAY NAME2 ~Xathan Tor'Sszafin~
+  WRITE_ASCII 0x2cc ~k4xathan~ #8 // Dialogue
+  WRITE_ASCII 0x248 ~k4xathan~ #8   // Override script
+  WRITE_ASCII 0x250 ~k4mage~ #8   // Class script
+
+COPY ~k4morgul/are~ ~override~
+//TODO:
+// 1. Well Animation to ar2200
+// 2. Travel point to "kk0001:Entrance1" setup in ar2200
+// 3. entrance "kkex0001" setup to ar2200
+COPY_EXISTING ~ar2200.are~ ~override~
+  LPF fj_are_structure
+    INT_VAR
+    fj_loc_x       = 4902
+    fj_loc_y       = 3376
+    fj_flags       = 0b00000000000000000001000110000101
+    //visible, not illuminated, invisible in dark, covered by actors, shown in combat
+    STR_VAR
+    fj_structure_type = animation
+    fj_name           = K4WELLAN
+    fj_bam_resref     = K4WELLAN
+  END
+  LPF fj_are_structure
+    INT_VAR
+    fj_alt_x       = 4890
+    fj_alt_y       = 3460
+    fj_type         = 2    //travel
+    fj_box_left     = 4860
+    fj_box_top      = 3340
+    fj_box_right    = 4950
+    fj_box_bottom   = 3410
+    fj_cursor_idx   = 30   //door
+    fj_vertex_0     = 4860 + (3340 << 16)
+    fj_vertex_1     = 4950 + (3340 << 16)
+    fj_vertex_2     = 4950 + (3410 << 16)
+    fj_vertex_3     = 4860 + (3410 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = kkwelle
+    fj_destination_area = kk0001
+    fj_destination_name = Entrance1
+  END
+  LPF fj_are_structure
+    INT_VAR
+    fj_loc_x       = 4890
+    fj_loc_y       = 3460
+    fj_orientation = 15   //NE
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = kkex0001
+  END
+
+COMPILE ~k4morgul/baf/k4faere.baf~
+COMPILE ~k4morgul/baf/k4xathan.baf~
+COMPILE ~k4morgul/baf/k4lokir.baf~
+COMPILE ~k4morgul/baf/k4priest.baf~
+COMPILE ~k4morgul/baf/k4mage.baf~
+COMPILE ~k4morgul/baf/k4duegar.baf~
+COMPILE ~k4morgul/baf/k4morg.baf~
+COMPILE ~k4morgul/dialog/k4faere.d~
+COMPILE ~k4morgul/dialog/k4xathan.d~
+COMPILE ~k4morgul/dialog/k4lokir.d~
+COMPILE ~k4morgul/dialog/k4morg.d~ USING ~k4morgul/tra/english/k4morgd.tra~
+
+// items
+
+// Stink flail
+COPY ~k4morgul/items/k4flail1.ITM~ ~override/k4flail1.ITM~
+  SAY NAME2 @0
+  SAY DESC @1
+
+ADD_PROJECTILE ~k4morgul/pro/k4cloud.PRO~
+COPY ~k4morgul/spl/k4wstink.SPL~ ~override/k4wstink.SPL~
+  WRITE_SHORT 0x098 ~%k4cloud%~
+
+// chaos mace
+COPY ~k4morgul/eff/k4mac01d.EFF~ ~override/k4mac01d.EFF~
+COPY ~k4morgul/eff/k4mac01t.EFF~ ~override/k4mac01t.EFF~
+COPY ~k4morgul/items/k4mace01.ITM~ ~override/k4mace01.ITM~
+  SAY NAME2 @2
+  SAY DESC @3
+  WRITE_ASCII 0x14e ~k4mac01t~ #8 // EFF file
+  WRITE_ASCII 0x1ae ~k4mac01d~ #8 // EFF file
+
+// soul vial
+COPY ~k4morgul/items/k4amul01.ITM~ ~override/k4amul01.ITM~
+  SAY NAME2 @4
+  SAY DESC @5
+  SAY NAME1 @45
+  SAY UNIDENTIFIED_DESC @46
+
+COPY ~k4morgul/items/k4chai01.ITM~ ~override/k4chai01.ITM~
+  SAY NAME2 @6
+  SAY DESC @7
+
+COPY ~k4morgul/items/k4long01.ITM~ ~override/k4long01.ITM~
+  SAY NAME2 @8
+  SAY DESC @9
+
+COPY ~k4morgul/items/k4plat01.ITM~ ~override/k4plat01.ITM~
+  SAY NAME2 @10
+  SAY DESC @11
+
+COPY ~k4morgul/items/k4xbow01.ITM~ ~override/k4xbow01.ITM~
+  SAY NAME2 @12
+  SAY DESC @13
+
+COPY ~k4morgul/cre/k4morg.cre~ ~override/k4morg.cre~
+  SAY INITIAL_MEETING @14
+  SAY MORALE @15
+  SAY HAPPY @16
+  SAY UNHAPPY_ANNOYED @17
+  SAY UNHAPPY_SERIOUS @18
+  SAY UNHAPPY_BREAKING @19
+  SAY LEADER @20
+  SAY TIRED @21
+  SAY BORED @22
+  SAY BATTLE_CRY1 @23
+  SAY DAMAGE @24
+  SAY DYING @25
+  SAY HURT @26
+  SAY AREA_FOREST @27
+  SAY AREA_CITY @28
+  SAY AREA_DUNGEON @29
+  SAY AREA_DAY @30
+  SAY AREA_NIGHT @31
+  SAY SELECT_COMMON1 @32
+  SAY SELECT_COMMON2 @33
+  SAY SELECT_COMMON3 @34
+  SAY SELECT_ACTION1 @35
+  SAY SELECT_ACTION2 @36
+  SAY SELECT_ACTION3 @37
+  SAY SELECT_ACTION4 @38
+  SAY SELECT_ACTION5 @39
+  SAY SELECT_ACTION6 @40
+  SAY SELECT_ACTION7 @41
+  //SAY INTERACTION1 ~~
+  //SAY INTERACTION2 ~~
+  //SAY INTERACTION3 ~~
+  //SAY INTERACTION4 ~~
+  //SAY INTERACTION5 ~~
+  //SAY INSULT1 ~~
+  //SAY INSULT2 ~~
+  //SAY INSULT3 ~~
+  //SAY COMPLIMENT1 ~~
+  //SAY COMPLIMENT2 ~~
+  //SAY COMPLIMENT3 ~~
+  SAY REACT_TO_DIE_GENERAL @42
+  //SAY REACT_TO_DIE_SPECIFIC ~We could take our turns with the corpse, He he.~
+  //SAY RESPONSE_TO_COMPLIMENT1 ~~
+  //SAY RESPONSE_TO_COMPLIMENT2 ~~
+  //SAY RESPONSE_TO_COMPLIMENT3 ~~
+  //SAY RESPONSE_TO_INSULT1 ~~
+  //SAY RESPONSE_TO_INSULT2 ~~
+  //SAY RESPONSE_TO_INSULT3 ~~
+  SAY BIO @44
+  SAY NAME1 ~Morg~
+  SAY NAME2 ~Morg~
+  WRITE_ASCII SCRIPT_OVERRIDE ~K4MORG~
+
+COPY_EXISTING ~kk0001.are~ ~override~
+  SAY 0x1894 @43
+  LPF fj_are_structure
+    INT_VAR
+    fj_loc_x          = 1725
+    fj_loc_y          = 300
+    fj_schedule       = 0b111111111111111111111111
+    fj_orientation    = 15     //SSE
+    STR_VAR
+    fj_structure_type = actor
+    fj_name           = Morg
+    fj_cre_resref     = k4morg
+  END
+
+APPEND ~Pdialog.2da~
+~K4MORG         K4MORGP        K4MORGJ        K4MORGD~
+UNLESS ~K4MORG~
+
+COPY ~k4morgul/portrait~ ~override~

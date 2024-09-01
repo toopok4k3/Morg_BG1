@@ -1,0 +1,154 @@
+@0  = ~Stinky's Skull +1~
+@1  = ~Hermit known only as Stinky lived lonely in a cave. Food was brought to his cave entrance by nearby villagers for free, a deal struck out of necessicity to keep Stinky out, as he stank like a decaying corpse. No one knows what Stinky had done to anger gods to curse his whole essence to smell. Tales tell that even after his death, the cave was not entered in hundreds of years due to the stench. After a few millenia, a brave man, foolish by some standards, dared to explore the reeking tomb, finding only a moldy skull that was the origin of the rotten stench. Much to everyone's dismay, the skull was combined with spikes and made into a flailhead. A terrible weapon, for enemies and allies alike.
+
+STATISTICS:
+
+Equipped abilities:
+– Save vs. Death: +2
+– Charisma: -3
+
+Charge abilities: 
+– Stinking Cloud once per day
+
+Combat abilities: 
+– 20% chance per hit of releasing a small Stinking Cloud over the target, lasts for 2 rounds
+
+THAC0: +1
+Damage: 1d6+2, +1 poison
+Damage type: Crushing
+Speed Factor: 6
+Proficiency Type: Flail/Morning Star
+Type: One-handed
+Requires:
+ 13 Strength
+
+Weight: 13~
+@2  = ~Kromus's Chaos +1~
+@3  = ~The lawless rebel legend of the Underdark, Kromus, was a half-orc slave who fought his way out of slavery. Kromus escaped his captivity utilizing all the chaos caused by great beasts he set free, beasts he was tasked to ward. As a free half-orc, his rebellous group terrorized the outskirts of the Duergar city of Gracklstugh from 1346 DR, raiding merchant and military convoys at will. This kept going all the way until 1353 DR when he was finally hunted down by King Horgar Steelshadow IV himself.
+
+STATISTICS:
+
+THAC0: +1, +3 vs. lawful creatures
+Damage: 1d6+2, +4 vs. lawful creatures (crushing)
+Speed Factor: 6
+Proficiency Type: Mace
+Type: One-handed
+Requires:
+ 10 Strength
+
+Weight: 7~
+@4  = ~Vhaeraun's Soul Vial~
+@5  = ~Inside the clear surface of the vial, lies a murky image of a drow's face, twisted in rage. The Vial is a gift from the Masked Lord, Vhaeraun. The vial is intented to hold a soul, and to extract power from whoever is captured inside. This vial contains the soul of a drow wizard.
+
+STATISTICS:
+
+Equipped abilities:
+– Increases arcane casting level by 2
+
+Weight: 1~
+@6  = ~Runechain +1~
+@7  = ~Thin, yet strong chainmail crafted from various exotic materials. Woven by the nimblest of duergar fingers, the seams are covered with magical runes. The drow house Tor'Sszafin has gained more power by embracing the duergars lust for gold. The chainmail being one of the benefits from having access to the skilled duergar craftsmen. The armor may be worn by thieves with few penalties and by bards and fighter/mages without disabling their spellcasting abilities.
+
+STATISTICS:
+
+Equipped abilities:
+– Open Locks: -5%
+– Find Traps: -5%
+– Pick Pockets: -20%
+– Move Silently: -10%
+– Spellcasting is not disabled
+
+Armor Class: 4 (2 vs. slashing, 6 vs. crushing)
+Requires:
+ 5 Strength
+
+Weight: 8~
+@8  = ~Dueling Sword +2~
+@9  = ~Common sight in the dim streets of Menzoberranzan, usually wielded by younger nobles looking for an opportunity to raise in rank. The fancy blade has magical soft web weave that can snatch on to the opponents blade at will. Many have fallen to these blades, but as they have become more popular, the craftsmen participating in the continous arms race have already made innovations to counter it.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: +2 vs. slashing attacks
+
+THAC0: +2
+Damage: 1d8+2
+Damage type: Slashing
+Speed Factor: 3
+Proficiency Type: Long Sword
+Type: One-handed
+Requires:
+ 5 Strength
+
+Weight: 3~
+@10 = ~Devout's Platemail +1~
+@11 = ~Lesser Drow houses may not always enjoy Lolth's favor. Many priestesses seek ways to prove their loyalty to the Spider Queen by subjecting themself to agony, to show their ultimate devotion to Lolth in a chance to gain favor. The armor's ornate golden plates cover thousands of tiny serrated poison needles, aimed inwards. The needles penetrate skin and hook on to the person wielding it, requiring divine assistance in undressing it. Only the most devout worshippers are able to withstand the pain and torture, and in due time they are able to resist the strongest poisons in the realms.
+
+STATISTICS:
+
+Equipped abilities:
+– Immunity to Poison
+– Constitution: -6
+– May only be removed with a Remove Curse spell
+
+Armor Class: 2 (-1 vs. slashing)
+Requires:
+ 11 Strength
+
+Weight: 18~
+@12 = ~Sharpener +2~
+@13 = ~Duergar often hand these crossbows to their best marksmen. An annual marksmen competition is held to find out the best of the best of each yearly generation. This was gifted by King Horgar itself to the recipient, as clearly stated by the stamping on the metal. Every bolt launched by the crossbow gets magically sharpened with a keen edge enhancement.
+
+STATISTICS:
+
+Equipped abilities:
+– Increases critical hit chance by 5%
+
+THAC0: +2
+Damage: +2 (missile)
+Speed Factor: 3
+Proficiency Type: Crossbow
+Type: Two-handed
+Requires:
+ 8 Strength
+
+Weight: 6~
+
+@14 = ~What? You Ain't the drow.~ [k4mo0001]
+@15 = ~I ain't dying for this!~ [k4mo0002]
+@16 = ~More bones and ashes in our wake, The more powerful we grow.~ [k4mo0003]
+@17 = ~Ye chose fame over might! Remember this mistake, lest ye repeat it.~ [k4mo0004]
+@18 = ~One more mistake and ye force me to leave.~ [k4mo0005]
+@19 = ~Don't ye know what they do to greybeards? Do not take me down with yer vanity.~ [k4mo0006]
+@20 = ~Get in line, wait for me orders ye bunch of meatbags.~ [k4mo0007]
+@21 = ~The dead never tire. We are weak.~ [k4mo0008]
+@22 = ~I'd rather wait when I'm in the grave.~ [k4mo0009]
+@23 = ~Embrace death and serve!~ [k4mo0010]
+@24 = ~Oof!~ [k4mo0011]
+@25 = ~Errggh!~ [k4mo0012]
+@26 = ~I can see my bone.~ [k4mo0013]
+@27 = ~Everything is alive. Why not just burn it all down? Clean up a little.~ [k4mo0014]
+@28 = ~All this disorganization and noise, ye surfacers lack true discipline.~ [k4mo0015]
+@29 = ~Watch yer steps, fools. Check every shadow! There's always something lurking around.~ [k4mo0016]
+@30 = ~Had I the power of god, I'd destroy the sun. Someday I will.~ [k4mo0017]
+@31 = ~Hahahahaha! I can finally see, find me some bones to animate.~ [k4mo0018]
+@32 = ~Huh?~ [k4mo0019]
+@33 = ~Whaa-at?~ [k4mo0020]
+@34 = ~Why me?~ [k4mo0021]
+@35 = ~Suuure.~ [k4mo0022]
+@36 = ~I slay!~ [k4mo0023]
+@37 = ~Pick a bone.~ [k4mo0024]
+@38 = ~I'm a mighty Duergar! Watch what yer doing, or I'll make you a slave.~ [k4mo0025]
+@39 = ~Yes? I'll suck the life out of it~ [k4mo0026]
+@40 = ~Do me a favor and die, be more useful that way.~ [k4mo0027]
+@41 = ~DEAD, Strong and silent, the way I prefer me companions.~ [k4mo0028]
+@42 = ~Only the weak die.~ [k4mo0029]
+
+@43 = ~This large tunnel entrance has clearly collapsed, you estimate it would take at least a weeks worth of work from a dozen miners to clear.~
+@44 = ~When asked about his past, he mentions his full name, Morgul of clan Grimskull. The clan rose in might due to their mastery of necromancy. Members of the clan are often employed to serve as bonewardens, keepers of the undead, a highly feared profession in the city of Gracklstugh.
+
+Working with the undead has left a visible mark on Morg. Most of his stories involve the undead, instead of a living being. He's unable to watch anyone in the eye during conversations, talking as if no other person is present. At times he does show the brilliance of his mind, but rarely in a positive tone.
+
+His lack of political finess and ties with other Duergar was the reasons he was transferred to serve a drow necromancer in Menzoberranzan. A job most of the Duergar would outright refuse.~
+@45 = ~Mysterious Vial~
+@46 = ~A mysterious vial, you can see a dim shape inside the vial.~
